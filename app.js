@@ -4,18 +4,20 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const exhbs = require("express-handlebars");
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const indexRouter = require("./routes/index");
 const aboutRouter = require("./routes/about");
 const adminRouter = require("./routes/admin");
-const adminMaqolaRouter = require('./routes/maqola')
-const clientMaqolaRouter = require('./routes/clientMaqolaRead')
-const maqolalarRouter = require('./routes/maqolalar')
-const variables = require('./middleware/variables')
-const authRouter = require('./routes/auth')
-const session = require('express-session')
-const MongoStore = require('connect-mongodb-session')(session)
+const adminMaqolaRouter = require("./routes/maqola");
+const clientMaqolaRouter = require("./routes/clientMaqolaRead");
+const maqolalarRouter = require("./routes/maqolalar");
+const variables = require("./middleware/variables");
+const authRouter = require("./routes/auth");
+const session = require("express-session");
+const MongoStore = require("connect-mongodb-session")(session);
+const URI =
+  "mongodb+srv://saidkarimov014:azik2008@cluster0.5bpehxg.mongodb.net/14maktab";
 
 const app = express();
 
@@ -42,13 +44,6 @@ require("./helper/db")();
 // const url = process.env.MONGO_URL
 // mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
-
-
-
-
-
-
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -56,7 +51,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 const store = new MongoStore({
-  uri: process.env.MONGO_URL,
+  uri: URI,
   collection: "session",
 });
 
@@ -68,14 +63,14 @@ app.use(
     store,
   })
 );
-app.use(variables)
+app.use(variables);
 
 app.use("/", indexRouter);
 app.use("/about", aboutRouter);
 app.use("/14admin", adminRouter);
-app.use('/14admin/maqola', adminMaqolaRouter)
-app.use("/maqolaKo'rish", clientMaqolaRouter)
-app.use('/maqolalar', maqolalarRouter)
+app.use("/14admin/maqola", adminMaqolaRouter);
+app.use("/maqolaKo'rish", clientMaqolaRouter);
+app.use("/maqolalar", maqolalarRouter);
 app.use("/14auth", authRouter);
 
 app.use("/auth", express.static(path.join(__dirname, "public")));
