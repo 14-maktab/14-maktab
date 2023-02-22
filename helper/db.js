@@ -50,15 +50,15 @@
 // };
 
 const mongoose = require("mongoose");
-// const URI =
-//   "mongodb+srv://saidkarimov014:azik2008@cluster0.5bpehxg.mongodb.net/14maktab";
+const URI =
+  "mongodb+srv://saidkarimov014:azik2008@cluster0.5bpehxg.mongodb.net/14maktab";
 
 module.exports = async () => {
   try {
     mongoose.set("strictQuery", false);
     require("dotenv").config();
     // await mongoose.connect(URI);
-    await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(URI);
 
     const db = mongoose.connection;
 
