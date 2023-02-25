@@ -362,7 +362,7 @@ body.dark {
 body.dark .search-field i {
   color: var(--text-color);
 } */
-nav {
+.ClientNav {
   position: fixed;
   top: 0;
   left: 0;
@@ -719,6 +719,7 @@ body {
   border: 1px solid #880bc2;
   padding: 50px;
   width: 300px !important;
+  height: 360px;
 }
 
 .fanlar_title {
@@ -800,11 +801,22 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: #757575;
 }
 
 .titleBox {
   margin-bottom: 50px;
 }
+
+.color {
+  color: #fff;
+}
+
+.color:hover {
+  color: #833ab4;
+}
+
+
 
 /* Footer */
 
@@ -1078,6 +1090,10 @@ ul {
   .fanlar {
     width: 100%;
   }
+
+  .ClientMaqolaImg {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1149,6 +1165,7 @@ ul {
   .fanlar_block {
     margin: 0;
   }
+
   nav .nav-bar .sidebarOpen {
     display: block;
     backdrop-filter: blur(10px);
@@ -1236,6 +1253,18 @@ ul {
     width: 100% !important;
     margin-bottom: 20px;
   }
+
+  .ClientMaqolaImg {
+    width: 100%;
+  }
+  .maqolaImg{
+    width: 200px;
+    height: 200px;
+  }
+
+  .col_media_768{
+    margin-left: 20px;
+  }
 }
 
 @media (max-width: 425px) {
@@ -1297,7 +1326,7 @@ ul {
     margin-top: 20px;
   }
 
-  .block_title{
+  .block_title {
     font-size: 25px !important;
   }
 
@@ -1308,7 +1337,7 @@ ul {
     /* padding: 1rem 0; */
   }
 
-  .slide{
+  .slide {
     height: 30rem;
   }
 
@@ -1339,6 +1368,11 @@ ul {
 
   .box_media {
     width: 100% !important;
+  }
+
+  .ClientMaqolaImg {
+    width: 100%;
+    height: 350px;
   }
 }
 
@@ -1428,5 +1462,21 @@ ul {
 
   .box_media {
     width: 100% !important;
+  }
+
+  .maqolaImg {
+    width: 150px;
+    height: 150px;
+  }
+
+  .internet {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ClientMaqolaImg {
+    width: 100%;
+    height: 310px;
   }
 }
