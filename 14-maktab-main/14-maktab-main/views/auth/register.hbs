@@ -1,0 +1,41 @@
+<div class="col-md-4 m-auto">
+    <div class="card">
+        <div class="card-body register-card-body">
+            <p class="login-box-msg">Registratsiya</p>
+            <form action="/14auth/regisstratsiya" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="name" placeholder="Name" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="login" placeholder="Login" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-block bg-gradient-secondary btn-lg">Register</button>
+                    </div>
+                </div>
+            </form>
+            <p class="mb-0">
+                <a href="/14auth/login" class="text-center">I've account already</a>
+            </p>
+        </div>
+    </div>
+</div>
