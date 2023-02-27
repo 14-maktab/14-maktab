@@ -362,7 +362,7 @@ body.dark {
 body.dark .search-field i {
   color: var(--text-color);
 } */
-nav {
+.clientNavbar {
   position: fixed;
   top: 0;
   left: 0;
