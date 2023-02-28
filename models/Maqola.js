@@ -12,7 +12,7 @@ const maqolaSchema = new Schema({
     img: {
         type: String,
     },
-    avatar: {
+    video:{
         type: String
     },
     categoryId: {

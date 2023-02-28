@@ -1,2 +1,24 @@
 {{> index_block}}
-{{> section}}
+{{!-- {{> section}} --}}
+<section class="fanlar">
+    <h2 class="fanlar_title">Bizning fanlar</h2>
+    <div class="container_14">
+        <div class="row_14">
+            <div class="col_12">
+                <div class="fanlar_block owl-carousel">
+                    {{#if yutuq.length}}
+                    {{#each yutuq}}
+                    <a href="/yutuqKo'rish/{{id}}">
+                        <div class="box">
+                            <img src="images/{{img}}" width="200" height="200" alt="">
+                            <h3 class="yutuqTitle">{{yutuqTitle}}</h3>
+                            <h4 class="yutuqText">{{yutuqText}}</h3>
+                        </div>
+                    </a>
+                    {{/each}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

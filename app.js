@@ -11,7 +11,10 @@ const aboutRouter = require("./routes/about");
 const adminRouter = require("./routes/admin");
 const adminMaqolaRouter = require("./routes/maqola");
 const clientMaqolaRouter = require("./routes/clientMaqolaRead");
+const clientYutuqRouter = require("./routes/clientYutuqRead");
 const maqolalarRouter = require("./routes/maqolalar");
+const yutuqlarRouter = require("./routes/yutuqlar");
+const yutuqRouter = require("./routes/yutuq");
 const variables = require("./middleware/variables");
 const authRouter = require("./routes/auth");
 const session = require("express-session");
@@ -66,10 +69,13 @@ app.use(
 app.use(variables);
 
 app.use("/", indexRouter);
+// app.use("/yutuqlar", yutuqlarRouter);
 app.use("/about", aboutRouter);
 app.use("/14admin", adminRouter);
 app.use("/14admin/maqola", adminMaqolaRouter);
+app.use("/14admin/yutuq", yutuqRouter);
 app.use("/maqolaKo'rish", clientMaqolaRouter);
+app.use("/yutuqKo'rish", clientYutuqRouter);
 app.use("/maqolalar", maqolalarRouter);
 app.use("/14auth", authRouter);
 

@@ -66,6 +66,16 @@ $(function () {
         nav: false,
         loop: false,
       },
+      1024: {
+        items: 2.5,
+        nav: false,
+        loop: false,
+      },
+      1200: {
+        items: 4,
+        nav: false,
+        loop: false,
+      },
     },
   });
 });
