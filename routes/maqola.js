@@ -3,10 +3,11 @@ const router = Router();
 const Maqola = require("../models/Maqola");
 const fileUpload = require("../middleware/fileUpload");
 const toDelete = require("../middleware/toDelete");
+const auth = require('../middleware/auth')
 
 router.get(
   "/add",
-  /* auth, */ async (req, res) => {
+  auth, async (req, res) => {
     const maqola = await Maqola.find();
     // const categories = await Category.find()
 
@@ -22,7 +23,7 @@ router.get(
 
 router.get(
   "/read",
-  /* auth, */ async (req, res) => {
+  auth, async (req, res) => {
     const maqola = await Maqola.find();
     res.render("admin/maqolaniKorish", {
       title: "Maqola ko'rish",
@@ -33,7 +34,7 @@ router.get(
   }
 );
 
-router.post("/add", /* auth, */ fileUpload.single("img"), async (req, res) => {
+router.post("/add", auth, fileUpload.single("img"), async (req, res) => {
   const { maqolaTitle, maqolaText, categoryId } = req.body;
   const img = req.file.filename;
   console.log(img);
@@ -62,7 +63,7 @@ router.get("/edit/:id", async (req, res) => {
 
 router.post(
   "/edit/:id",
-  /* auth, */ fileUpload.single("img"),
+  auth, fileUpload.single("img"),
   async (req, res) => {
     const { img } = await Maqola.findById(req.params.id);
     const maqola = req.body;
@@ -78,7 +79,7 @@ router.post(
   }
 );
 
-router.get('/delete/:id', /* auth, */ async (req, res) => {
+router.get('/delete/:id', auth, async (req, res) => {
     const { img } = await Maqola.findById(req.params.id)
     await Maqola.findByIdAndDelete(req.params.id, req.body,)
     toDelete(img)

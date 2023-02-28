@@ -3,10 +3,11 @@ const router = Router();
 const Yutuq = require("../models/Yutuq");
 const fileUpload = require("../middleware/fileUpload");
 const toDelete = require("../middleware/toDelete");
+const auth = require('../middleware/auth')
 
 router.get(
   "/add",
-  /* auth, */ async (req, res) => {
+  auth, async (req, res) => {
     const yutuq = await Yutuq.find();
 
     res.render("admin/yutuqYaratish", {
@@ -20,7 +21,7 @@ router.get(
 
 router.get(
   "/read",
-  /* auth, */ async (req, res) => {
+  auth, async (req, res) => {
     const yutuq = await Yutuq.find();
     res.render("admin/yutuqlarniKorish", {
       title: "Yutuqlarni ko'rish",
@@ -31,7 +32,7 @@ router.get(
   }
 );
 
-router.post("/add", /* auth, */ fileUpload.single("img"), async (req, res) => {
+router.post("/add", auth, fileUpload.single("img"), async (req, res) => {
   const { yutuqTitle, yutuqText } = req.body;
   const img = req.file.filename;
   console.log(img);
@@ -59,7 +60,7 @@ router.get("/edit/:id", async (req, res) => {
 
 router.post(
   "/edit/:id",
-  /* auth, */ fileUpload.single("img"),
+  auth, fileUpload.single("img"),
   async (req, res) => {
     const { img } = await Yutuq.findById(req.params.id);
     const yutuq = req.body;
@@ -77,7 +78,7 @@ router.post(
 
 router.get(
   "/delete/:id",
-  /* auth, */ async (req, res) => {
+  auth, async (req, res) => {
     const { img } = await Yutuq.findById(req.params.id);
     await Yutuq.findByIdAndDelete(req.params.id, req.body);
     toDelete(img);
